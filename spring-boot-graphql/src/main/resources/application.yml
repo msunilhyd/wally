@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: spring-boot-grqphql
+
+server:
+  http2:
+    enabled: true
+
+graphql:
+  playground:
+    mapping: /playground
+    enabled: true
