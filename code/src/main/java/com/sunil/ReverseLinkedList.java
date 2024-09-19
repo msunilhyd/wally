@@ -1,7 +1,5 @@
 package com.sunil;
 
-import java.util.Arrays;
-
 public class ReverseLinkedList {
 
     public ListNode reverseList(ListNode head) {
@@ -32,6 +30,10 @@ class ListNode {
 
     public ListNode(int data) {
         this.data = data;
+        this.next = null;
+    }
+    public ListNode() {
+        this.data = Integer.parseInt(null);
         this.next = null;
     }
 }

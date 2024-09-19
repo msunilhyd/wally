@@ -4,7 +4,7 @@ public class MergeTwoSortedLinkedLists {
 
     public ListNode mergeTwoSortedLists(ListNode l1, ListNode l2) {
         // 1. Declare return list and dummy node pointing to list
-        ListNode returnList = new ListNode(0);
+        ListNode returnList = new ListNode();
         ListNode dummy = returnList;
 
         // 2. Iterate until list one or list two is empty
