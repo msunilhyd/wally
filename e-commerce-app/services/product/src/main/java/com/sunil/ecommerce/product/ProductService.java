@@ -19,9 +19,14 @@ public class ProductService {
 
 //    @Autowired
 //    ProductRepository repository;
-    @Autowired
     private ProductRepository repository;
     private final ProductMapper mapper;
+    private EmpRepository empRepository;
+
+    public String hello() {
+        System.out.println("empRepository = " + empRepository);
+        return "Heoo";
+    }
 
     public Integer createProduct(
             ProductRequest request
@@ -51,7 +56,9 @@ public class ProductService {
                 .stream()
                 .map(ProductPurchaseRequest::productId)
                 .toList();
-        var storedProducts = repository.findAllByIdInOrderById(productIds);
+//        var storedProducts = repository.findAllByIdInOrderById(productIds);
+
+        var storedProducts = repository.findAll();
         if (productIds.size() != storedProducts.size()) {
             throw new ProductPurchaseException("One or more products does not exist");
         }

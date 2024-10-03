@@ -32,4 +32,12 @@ public class OrderController {
     ) {
         return ResponseEntity.ok(service.findById(orderId));
     }
+
+
+    @GetMapping("/hello")
+    public ResponseEntity<OrderResponse> sayHello(
+    ) {
+        return ResponseEntity.ok(service.findById(123));
+    }
+
 }

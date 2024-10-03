@@ -83,6 +83,8 @@ public class OrderService {
     }
 
     public OrderResponse findById(Integer orderId) {
+        System.out.println("lllllllll");
+        System.out.println("repository = " + repository);
         return repository.findById(orderId)
                 .map(mapper::fromOrder)
                 .orElseThrow(() -> new EntityNotFoundException(String.format("No order found with the provided orderId")));
