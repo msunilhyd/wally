@@ -1,12 +1,26 @@
-{
-  "configResolution": {
-    "resolved": {
-      "spring.jpa.hibernate.dialect": "",
-      "spring.datasource.url": "jdbc:mysql://<<your_db_server>>/<<your_db_name>>",
-      "spring.datasource.driverClassName": "com.mysql.cj.jdbc.Driver",
-      "meta.catalogue.id": "868199048193807",
-      "defaultDescription": "this is a sample product desc",
-      "spring.jpa.show-sql": ""
-    }
-  }
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="DEBUG">
+    <Properties>
+        <Property name="LOG_PATTERN">
+            %d{yyyy-MM-dd HH:mm:ss.SSS} %5p ${hostName} --- [%15.15t] %-40.40c{1.} : %m%n%ex
+        </Property>
+    </Properties>
+    <Appenders>
+        <Console name="ConsoleAppender" target="SYSTEM_OUT"
+                 follow="true">
+            <LogJsonLayout charset="true"/>
+        </Console>
+        <Console name="JsonLayoutAppender" target="SYSTEM_OUT" follow="true">
+            <JSONLayout compact="true" complete="false" eventEol="true"
+                        objectMessageAsJsonObject="true"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Logger name="MarTechLogger" level="info" additivity="false">
+            <AppenderRef ref="ConsoleAppender"/>
+        </Logger>
+        <Root level="info">
+            <AppenderRef ref="ConsoleAppender"/>
+        </Root>
+    </Loggers>
+</Configuration>
