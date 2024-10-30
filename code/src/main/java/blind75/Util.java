@@ -21,6 +21,9 @@ public class Util {
 
         root.left = left;
         root.right = right;
+
+        TreeNode temp = new TreeNode(9);
+        rightRight.right = temp;
         return root;
     }
 
@@ -62,5 +65,6 @@ public class Util {
             System.out.print(temp.data + " -> ");
             temp = temp.next;
         }
+        System.out.println();
     }
 }

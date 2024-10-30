@@ -5,7 +5,8 @@ public class BestTimeToBuySellStock {
         int[] nums = {4, 3, 7, 1, 8, 9};
         System.out.println(find(nums));
     }
-
+    // Time Complexity = O(n)
+    // Space Complexity = O(1)
     public static int find(int[] nums) {
         int maxProfit = 0;
         int min = nums[0];
