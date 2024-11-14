@@ -6,8 +6,8 @@ import java.util.Map;
 public class MinWindowSubstring {
 
     public static void main(String[] args) {
-        String s = "ADOBECODEBANC";
-        String t = "ABC";
+        String s = "ADOBEKCODEBANCC";
+        String t = "ABCCKK";
         System.out.println(find(s, t));
     }
 

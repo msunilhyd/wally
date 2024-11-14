@@ -47,9 +47,9 @@ public class Util {
 
     public static ListNode getList() {
 
-        ListNode one = new ListNode(1);
+        ListNode one = new ListNode(6);
         ListNode two = new ListNode(2);
-        ListNode three = new ListNode(3);
+        ListNode three = new ListNode(13);
         ListNode four = new ListNode(4);
         ListNode five = new ListNode(5);
 

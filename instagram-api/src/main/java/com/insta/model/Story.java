@@ -1,22 +1,19 @@
-package com.insta.instagram.model;
+package com.insta.model;
 
-import com.insta.instagram.dto.UserDto;
+import com.insta.dto.UserDto;
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name="posts")
-public class Post {
+@Table (name = "stories")
+@Data
+public class Story {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-
-    private String caption;
-    private String image;
-    private String location;
-    private LocalDateTime createdAt;
 
     @Embedded
     @AttributeOverrides({
@@ -24,4 +21,7 @@ public class Post {
             @AttributeOverride(name="email", column=@Column(name="user_email"))
     })
     private UserDto user;
+    private String caption;
+    private String image;
+    private LocalDateTime timestamp;
 }
