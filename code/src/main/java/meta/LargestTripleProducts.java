@@ -5,7 +5,7 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class LargestTripleProducts {
-
+// Time Complexity = O(n)
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4, 5};
         System.out.println(Arrays.toString(find(arr)));

@@ -1,45 +1,51 @@
 package meta;
 
 import java.util.*;
+import java.util.stream.IntStream;
+
 public class MinimizingPermutations {
 
+//    Time Complexity = O(n! * n^3)
     public static void main(String[] args) {
         int[] arr = {3, 1, 2};
         System.out.println(find(arr));
     }
 
     private static int find(int[] arr) {
-        Map<Integer, Integer> updatedIndexes = new HashMap();
-        PriorityQueue<Integer> heap = new PriorityQueue<>();
-        for (int i=0; i<arr.length; i++) {
-            heap.add(arr[i]);
-            updatedIndexes.put(arr[i], i);
-        }
-        int curr = 0;
-        int swapCount = 0;
-        while (!heap.isEmpty()) {
-            int n = heap.poll();
-            if (n < arr[curr]) {
-                reverse(arr, Math.min(updatedIndexes.get(n), curr), Math.max(updatedIndexes.get(n), curr), updatedIndexes);
-                swapCount++;
+        int ret = 0;
+        int[] target = IntStream.rangeClosed(1, arr.length).toArray();
+        Set<String> seen = new HashSet();
+        Queue<int[]> queue = new LinkedList();
+        queue.offer(arr);
+        seen.add(Arrays.toString(arr));
+
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            for (int i=0; i<size; i++) {
+                int[] curr = queue.poll();
+                if (Arrays.equals(curr, target))
+                    return ret;
+                for (int j=0; j<curr.length; j++) {
+                    for (int k=j+1; k<curr.length; k++) {
+                        int[] next = curr.clone();
+                        reverse(next, j, k);
+                        if (!seen.contains(Arrays.toString(next))) {
+                            seen.add(Arrays.toString(next));
+                            queue.offer(next);
+                        }
+                    }
+                }
             }
-            curr++;
+            ret++;
         }
-
-        return swapCount;
+        return ret;
     }
 
-    private static void reverse(int[] arr, int min, int max, Map<Integer, Integer> updatedIndexes) {
-        for (int i=min, j=max; i<=max && j>i; i++, j--) {
-            swap(arr, i, j);
-            updatedIndexes.put(arr[i], i);
-            updatedIndexes.put(arr[j], j);
+    private static void reverse(int[] arr, int from, int to) {
+        for (; from < to; from++, to--) {
+            int temp = arr[from];
+            arr[from] = arr[to];
+            arr[to] = temp;
         }
-    }
-
-    private static void swap(int[] arr, int i, int j) {
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
     }
 }
