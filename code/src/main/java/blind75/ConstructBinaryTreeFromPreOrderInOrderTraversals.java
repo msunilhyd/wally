@@ -27,7 +27,7 @@ public class ConstructBinaryTreeFromPreOrderInOrderTraversals {
 
         TreeNode root = new TreeNode(rootVal);
 
-        root.left = recurse(preStart + 1, preStart + nLeft, inStart, inEnd - 1);
+        root.left = recurse(preStart + 1, preStart + nLeft, inStart, inIndex - 1);
         root.right = recurse(preStart + 1 + nLeft, preEnd, inIndex + 1, inEnd);
 
         return root;

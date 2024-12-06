@@ -40,16 +40,16 @@ public class AuthController {
         return ResponseEntity.ok(res);
     }
 
-    @PostMapping("/send/login-signup-otp")
-    public ResponseEntity<APIResponse> sendOtpHandler(@RequestBody VerificationCode req) throws Exception {
-
-        authService.sendLoginOtp(req.getEmail());
-
-        APIResponse res = new APIResponse();
-        res.setResponse("otp sent successfully");
-
-        return ResponseEntity.ok(res);
-    }
+//    @PostMapping("/send/login-signup-otp")
+//    public ResponseEntity<APIResponse> sendOtpHandler(@RequestBody VerificationCode req) throws Exception {
+//
+//        authService.sendLoginOtp(req.getEmail());
+//
+//        APIResponse res = new APIResponse();
+//        res.setResponse("otp sent successfully");
+//
+//        return ResponseEntity.ok(res);
+//    }
 
     @PostMapping("/signIn")
     public ResponseEntity<AuthResponse> loginHandler(@RequestBody LoginRequest req) throws Exception {

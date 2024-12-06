@@ -2,7 +2,11 @@ package com.sunil;
 
 public class ValidPalindrome {
 
-    public boolean isPalindrome(String s) {
+    public static void main(String[] args) {
+        System.out.println(isPalindrome("abrkba"));
+    }
+
+    public static boolean isPalindrome(String s) {
         // 1. Make all the characters in string of same case
         s = s.toLowerCase();
         // 2. Convert the string to charArray

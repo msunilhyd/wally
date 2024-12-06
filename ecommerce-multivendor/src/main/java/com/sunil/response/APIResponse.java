@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class APIResponse {
 
-    private String response;
+    private String message;
 }

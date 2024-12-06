@@ -7,21 +7,21 @@ import java.util.List;
 
 public interface SellerService {
 
-    Seller getSellerProfile(String jwt);
+    Seller getSellerProfile(String jwt) throws Exception;
 
-    Seller createSeller(Seller seller);
+    Seller createSeller(Seller seller) throws Exception;
 
-    Seller getSellerById(Long id);
+    Seller getSellerById(Long id) throws Exception;
 
-    Seller getSellerByEmail(String email);
+    Seller getSellerByEmail(String email) throws Exception;
 
     List<Seller> getAllSellers(AccountStatus status);
 
-    Seller updateSeller(Long id, Seller seller);
+    Seller updateSeller(Long id, Seller seller) throws Exception;
 
-    void deleteSeller(Long id);
+    void deleteSeller(Long id) throws Exception;
 
-    String verifyEmail(String email, String otp);
+    Seller verifyEmail(String email, String otp) throws Exception;
 
-    Seller updateSellerAccountStatus(Long id, AccountStatus status);
+    Seller updateSellerAccountStatus(Long id, AccountStatus status) throws Exception;
 }

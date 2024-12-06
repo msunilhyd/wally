@@ -3,9 +3,11 @@ package com.sunil.service.impl;
 import com.sunil.config.JwtProvider;
 import com.sunil.domain.USER_ROLE;
 import com.sunil.model.Cart;
+import com.sunil.model.Seller;
 import com.sunil.model.User;
 import com.sunil.model.VerificationCode;
 import com.sunil.repository.CartRepository;
+import com.sunil.repository.SellerRepository;
 import com.sunil.repository.UserRepository;
 import com.sunil.repository.VerificationCodeRepository;
 import com.sunil.request.LoginRequest;
@@ -52,16 +54,24 @@ public class AuthServiceImpl implements AuthService {
 
     private final CustomUserServiceImpl customUserService;
 
+    private final SellerRepository sellerRepository;
+
     @Override
-    public void sendLoginOtp(String email) throws Exception {
-        String SIGNING_PREFIX = "signin_";
+    public void sendLoginOtp(String email, USER_ROLE role) throws Exception {
+        String SIGNING_PREFIX = "signing_";
+        String SELLER_PREFIX = "seller_";
 
         if (email.startsWith(SIGNING_PREFIX)) {
             email = email.substring(SIGNING_PREFIX.length());
-
-            User user = userRepository.findByEmail(email);
-            if (user == null) {
-                throw new Exception("user does not exist with this email");
+            if (role.equals(USER_ROLE.ROLE_SELLER)) {
+                Seller seller = sellerRepository.findByEmail(email);
+                if (seller == null)
+                    throw new Exception("seller does not exist with email:- "+ email);
+            } else {
+                User user = userRepository.findByEmail(email);
+                if (user == null) {
+                    throw new Exception("user does not exist with this email");
+                }
             }
         }
         VerificationCode isExists = verificationCodeRepository.findByEmail(email);

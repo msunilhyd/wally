@@ -10,7 +10,7 @@ public class HomeController {
     @GetMapping()
     public APIResponse HomeControllerHandler() {
         APIResponse apiResponse = new APIResponse();
-        apiResponse.setResponse("Welcome to ecommerce multi vendor system");
+        apiResponse.setMessage("Welcome to ecommerce multi vendor system");
         return apiResponse;
     }
 }

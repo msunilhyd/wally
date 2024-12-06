@@ -3,7 +3,8 @@ package blind75;
 public class ContainerWithMostWater {
 
     public static void main(String[] args) {
-        int[] heights = {1, 8, 6, 2, 5, 4, 8, 3, 7};
+//        int[] heights = {1, 8, 6, 2, 5, 4, 8, 3, 7};
+        int[] heights = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
         System.out.println(findMaxVol(heights));
     }
 

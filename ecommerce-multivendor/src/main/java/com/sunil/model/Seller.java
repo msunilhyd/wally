@@ -41,5 +41,7 @@ public class Seller {
 
     private boolean isEmailVerified = false;
 
+    private String mobile;
+
     private AccountStatus accountStatus = AccountStatus.PENDING_VERIFICATION;
 }
